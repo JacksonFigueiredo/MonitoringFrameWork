@@ -69,8 +69,6 @@ namespace API.Repository.Implementation
         {
             if (!Exists(item.Id)) return null;
 
-            // Pega o estado atual do registro no banco
-            // seta as alterações e salva
             var result = dataset.SingleOrDefault(b => b.Id == item.Id);
             if (result != null)
             {

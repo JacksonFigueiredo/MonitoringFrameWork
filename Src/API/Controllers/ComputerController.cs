@@ -31,16 +31,29 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var person = _computerBusiness.FindById(id);
-            if (person == null) return NotFound();
-            return Ok(person);
+            var computer = _computerBusiness.FindById(id);
+
+            if (computer == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(computer);
+            }          
         }
 
         [HttpPost]
         public IActionResult Post([FromBody]Capture computer)
         {
-            if (computer == null) return BadRequest();
-            return new ObjectResult(_computerBusiness.Create(computer));
+            if (computer == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return new ObjectResult(_computerBusiness.Create(computer));
+            }         
         }
     }
     }

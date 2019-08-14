@@ -38,16 +38,14 @@ namespace API
             services.AddDbContext<SqlContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //Versioning
             services.AddApiVersioning(option => option.ReportApiVersions = true);
 
-            //Add Swagger Service
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
                     new Info
                     {
-                        Title = "Monitoring Framework API 2.0",
+                        Title = "Monitoring Framework API 1.0",
                         Version = "v1"
                     });
 
